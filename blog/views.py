@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from .models import Post
 from django.contrib.auth.models import User
 from django.utils import timezone
@@ -14,3 +14,6 @@ def create_post(request):
     #p=Post.objects.get(title='ssssssssss')
 
     return render(request, 'blog/create_post.html', {})   
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blog/post_detail.html', {'post': post})
