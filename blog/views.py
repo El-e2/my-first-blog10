@@ -9,8 +9,8 @@ def post_list(request):
 
 def create_post(request):
     me=User.objects.get(username='admin')
-    # for i in range(100):
-    #     Post.objects.create(author=me,title=f'sample title {i}', text=f'sample title {i**2}')
-    p=Post.objects.get(title='ssssssssss')
+    for i in range(100):
+        Post.objects.create(author=me,title=f'sample title {i}', text=f'sample title {i**2}')
+    #p=Post.objects.get(title='ssssssssss')
 
     return render(request, 'blog/create_post.html', {})   
